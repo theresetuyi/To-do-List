@@ -99,7 +99,7 @@ To get a local copy of this exercice, Please follow these simple example steps.
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
+## 🔭 Future Features <a name="future-features"></a
 
 [ ] **[To do list]**
 - [ ] **[Add modules]**
@@ -123,4 +123,4 @@ Feel free to check the [issues page](https://github.com/theresetuyi/To-do-List/i
 This project has been created in reference to the template created by
 
 ## 📝 License
-This project is [MIT] licensed.
+This project is [License](MIT.md) licensed.
