@@ -1,5 +1,5 @@
-/* eslint-disable import/no-cycle */
 import { updateTodos } from '../index.js';
+/* eslint-disable import/no-cycle */
 
 function toggleComplete(id) {
   const todoListArray = JSON.parse(localStorage.getItem('todos') || '[]');
