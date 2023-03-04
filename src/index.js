@@ -1,6 +1,4 @@
 import './style.css';
-/* eslint-disable no-use-before-define */
-/* eslint-disable import/no-cycle */
 
 import { removeCompleted, toggleComplete } from './modules/interactive.js';
 
