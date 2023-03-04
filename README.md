@@ -31,7 +31,7 @@
 
 # 📖 To Do list: list structure<a name="about-project"></a>
 
-**To Do list: list structure** In this project, you will build a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server.
+**list structure** In this project, you will build a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -99,7 +99,10 @@ To get a local copy of this exercice, Please follow these simple example steps.
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a
+ list-structure
+## 🔭 Future Features <a name="future-features"></a>
+
+
 
 [ ] **[To do list]**
 - [ ] **[Add modules]**
@@ -123,4 +126,6 @@ Feel free to check the [issues page](https://github.com/theresetuyi/To-do-List/i
 This project has been created in reference to the template created by
 
 ## 📝 License
+
 This project is [License](MIT.md) licensed.
+
