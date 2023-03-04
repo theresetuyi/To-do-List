@@ -2,7 +2,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>To Do list: list structure</b></h3>
+  <h3><b> To Do list: interactive list</b></h3>
 </div>
 
 # 📗 Table of Contents
@@ -29,9 +29,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 To Do list: list structure<a name="about-project"></a>
+# 📖 To Do list: interactive list<a name="about-project"></a>
 
-**list structure** In this project, you will build a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server.
+**interactive list** In this project, you will add some functionality to your application to make it interactive. The user will also be able to mark task completion by selecting the corresponding checkbox (or undo it by unchecking the checkbox). The updated tasks list will be stored in local storage.
 
 ## 🛠 Built With <a name="built-with"></a>
 
