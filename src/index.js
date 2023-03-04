@@ -1,20 +1,9 @@
 import './style.css';
-
-import { removeCompleted, toggleComplete } from './modules/interactive.js';
+import updateTodos from './modules/interactive.js';
 
 const newTodoForm = document.querySelector('#new-todo-form');
 const todoList = document.querySelector('.todo-list');
 const clear = document.querySelector('.clearComplete');
-
-function updateTodos(newTodos) {
-  const updatedTodos = [];
-  for (let i = 0; i < newTodos.length; i += 1) {
-    updatedTodos.push({ ...newTodos[i], id: i + 1 });
-  }
-
-  localStorage.setItem('todos', JSON.stringify(updatedTodos));
-  updateList();
-}
 
 function updateInputText(id, newText) {
   const todoListArray = JSON.parse(localStorage.getItem('todos') || '[]');
@@ -28,15 +17,32 @@ function updateInputText(id, newText) {
   updateTodos(updateTodoList);
 }
 
+function toggleComplete(id) {
+  const todoListArray = JSON.parse(localStorage.getItem('todos') || '[]');
+  const updateTodoList = todoListArray.map((todo) => {
+    if (todo.id === parseInt(id, 10)) {
+      return { ...todo, completed: !todo.completed };
+    }
+    return todo;
+  });
+
+  updateTodos(updateTodoList);
+}
+
+const removeCompleted = () => {
+  const todoListArr = JSON.parse(localStorage.getItem('todos') || '[]');
+  const updateList = todoListArr.filter((todo) => todo.completed !== true);
+  updateTodos(updateList);
+};
+
 const removeTodo = (targetIndex) => {
   const todoListArr = JSON.parse(localStorage.getItem('todos') || '[]');
   const updateList = todoListArr.filter((todo) => todo.id !== parseInt(targetIndex, 10));
   updateTodos(updateList);
 };
 
-function updateList() {
-  const todoListArray = JSON.parse(localStorage.getItem('todos') || '[]');
-  const description = todoListArray.map((todo) => `
+function updateList(todos) {
+  const description = todos.map((todo) => `
             <li class="card todo-list-item ${todo.completed ? 'completed' : ''}" data-id="${todo.id}">
               <input type="checkbox" ${todo.completed ? 'checked' : ''} class="checkbox"/>
               <input type="text" value="${todo.description}" class="inputtext" id="${todo.id}"/>
@@ -71,12 +77,13 @@ function newTodo(e) {
   document.getElementById('new-task').value = '';
   const updatedTodos = [...todos, newTodo];
   localStorage.setItem('todos', JSON.stringify(updatedTodos));
-  updateList();
+  updateList(updatedTodos);
 }
 
 function init() {
   newTodoForm.addEventListener('submit', newTodo);
-  updateList();
+  const todos = JSON.parse(localStorage.getItem('todos') || '[]');
+  updateList(todos);
 }
 
 clear.addEventListener('click', () => {
@@ -84,6 +91,3 @@ clear.addEventListener('click', () => {
 });
 
 init();
-
-// eslint-disable-next-line import/prefer-default-export
-export { updateTodos };

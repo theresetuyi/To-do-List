@@ -1,22 +1,20 @@
-/* eslint-disable import/no-cycle */
-import { updateTodos } from '../index.js';
+const todoList = document.querySelector('.todo-list');
 
-function toggleComplete(id) {
-  const todoListArray = JSON.parse(localStorage.getItem('todos') || '[]');
-  const updateTodoList = todoListArray.map((todo) => {
-    if (todo.id === parseInt(id, 10)) {
-      return { ...todo, completed: !todo.completed };
-    }
-    return todo;
-  });
+export default function updateTodos(newTodos) {
+  const updatedTodos = [];
+  for (let i = 0; i < newTodos.length; i += 1) {
+    updatedTodos.push({ ...newTodos[i], id: i + 1 });
+  }
 
-  updateTodos(updateTodoList);
+  localStorage.setItem('todos', JSON.stringify(updatedTodos));
+
+  const description = updatedTodos.map((todo) => `
+  <li class="card todo-list-item ${todo.completed ? 'completed' : ''}" data-id="${todo.id}">
+    <input type="checkbox" ${todo.completed ? 'checked' : ''} class="checkbox"/>
+    <input type="text" value="${todo.description}" class="inputtext" id="${todo.id}"/>
+    <button type="button">🗑</button>
+  </li>
+`).join('');
+
+  todoList.innerHTML = description;
 }
-
-const removeCompleted = () => {
-  const todoListArr = JSON.parse(localStorage.getItem('todos') || '[]');
-  const updateList = todoListArr.filter((todo) => todo.completed !== true);
-  updateTodos(updateList);
-};
-
-export { removeCompleted, toggleComplete };
